@@ -1,5 +1,6 @@
 body{
-    background: url("../images/bg.jpg");
+    background: url(../images/bg.png);
+
 }
 .site{
     font-family: 'Holtwood One SC', sans-serif;
@@ -13,18 +14,21 @@ body{
     font-size: 50px;
     padding: 40px 0px;
     text-align: center;
+
 }
 .text-logo .glyphicon
 {
     color: #ffd301;
     text-shadow: 0px 0px #ffd301;
 }
-.navMenu{
+.navMenu
+{
     margin-bottom: 40px;
 }
 .thumbnail img
 {
     background:#ffd301 ;
+
 }
 .price
 {
@@ -55,6 +59,10 @@ body{
 {
     color: #e7480f;
     font-size: 18px;
+}
+.caption > p
+{
+    height: 40px;
 }
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover
 {
@@ -87,3 +95,11 @@ body{
     color: #fff;
     background-color: #c13c0d;
 }
+
+
+
+
+
+
+
+

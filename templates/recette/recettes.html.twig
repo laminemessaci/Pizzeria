@@ -2,111 +2,58 @@
 
 {% block title %} Recettes {% endblock %}
 
-{% block monTitre %}<span class="glyphicon glyphicon-cutlery"></span> Listes de nos pizzas <span
+{% block monTitre %}<span class="glyphicon glyphicon-cutlery"></span> Nos produits <span
         class="glyphicon glyphicon-cutlery"></span> {% endblock %}
-
 {% block body %}
     <div class="container site">
-        <nav class=" navMenu">
+
+        <nav class="navMenu">
             <ul class="nav nav-pills">
-                <li role="presentation" class="active"><a href="#Menu" data-toggle="tab">Menu</a></li>
-                <li role="presentation"><a href="#Pizza" data-toggle="tab">Pizzas</a></li>
-                <li role="presentation"><a href="#" data-toggle="tab">Snacks</a></li>
-                <li role="presentation"><a href="#" data-toggle="tab">Salades</a></li>
-                <li role="presentation"><a href="#" data-toggle="tab">Boissons</a></li>
-                <li role="presentation"><a href="#" data-toggle="tab">Desserts</a></li>
+
+                {% for categorie in categories %}
+                    {% if categorie.id==1 %}
+                        <li role="presentation" class="active"><a href="#{{ categorie.id }}"
+                                                                  data-toggle="tab">{{ categorie.name }}</a></li>
+                    {% else %}
+                        <li role="presentation"><a href="#{{ categorie.id }}" data-toggle="tab">{{ categorie.name }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+
             </ul>
         </nav>
 
         <div class="tab-content">
 
-            <div class="tab-pane active" id="Menu">
-                <div class="row">
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="images/pizzas/atomica.png" alt="pizza" class="thumbnail">
-                            <div class="price">12.80 €</div>
-                            <div class="caption">
-                                <h4>Menu </h4>
-                                <p>Formule: Pizza, Salade, Tomate, Cornichon + Frites + Boissons </p>
-                                <a href="#" class="btn btn-order" role="button"><span
-                                            class="glyphicon glyphicon-shopping-cart"></span>Commander</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="images/pizzas/atomica.png" alt="pizza" class="thumbnail">
-                            <div class="price">12.80 €</div>
-                            <div class="caption">
-                                <h4>Menu Classic</h4>
-                                <p>Formule: Pizza, Salade, Tomate, Cornichon + Frites + Boissons </p>
-                                <a href="#" class="btn btn-order" role="button"><span
-                                            class="glyphicon glyphicon-shopping-cart"></span>Commander</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="images/pizzas/atomica.png" alt="pizza" class="thumbnail">
-                            <div class="price">12.80 €</div>
-                            <div class="caption">
-                                <h4>Menu Classic</h4>
-                                <p>Formule: Pizza, Salade, Tomate, Cornichon + Frites + Boissons </p>
-                                <a href="#" class="btn btn-order" role="button"><span
-                                            class="glyphicon glyphicon-shopping-cart"></span>Commander</a>
-                            </div>
-                        </div>
+            {% for categorie in categories %}
+            {% if categorie.id==1 %}
+            <div class="tab-pane active" id="{{ categorie.id }}">
+                {% else %}
+                <div class="tab-pane" id="{{ categorie.id }}">
+                    {% endif %}
+                    <div class="row">
+                        {% for recette in recettes %}
+                            {% if (recette.categorie.id == categorie.id) %}
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="thumbnail">
+                                        <img src="{{ asset('images/'~categorie.name~'/'~recette.image) }}" alt="pizza"
+                                             class="thumbnail">
+                                        <div class="price">{{ recette.prix|number_format(2, '.') }} €</div>
+                                        <div class="caption">
+                                            <h4>{{ recette.nom }}</h4>
+                                            <p>{{ recette.description }}</p>
+                                            <a href="#" class="btn btn-order  btn-primary btn-lg" role="button"><span
+                                                        class="glyphicon glyphicon-shopping-cart"></span> Commander</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
                     </div>
 
                 </div>
+                {% endfor %}
             </div>
-
-            <div class="tab-pane" id="Pizza">
-                <div class="row">
-
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="images/pizzas/atomica.png" alt="pizza" class="thumbnail">
-                            <div class="price">12.80 €</div>
-                            <div class="caption">
-                                <h4>Menu Classic 88888</h4>
-                                <p>Formule: Pizza, Salade, Tomate, Cornichon + Frites + Boissons </p>
-                                <a href="#" class="btn btn-order" role="button"><span
-                                            class="glyphicon glyphicon-shopping-cart"></span>Commander</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="images/pizzas/atomica.png" alt="pizza" class="thumbnail">
-                            <div class="price">12.80 €</div>
-                            <div class="caption">
-                                <h4>Menu Classic</h4>
-                                <p>Formule: Pizza, Salade, Tomate, Cornichon + Frites + Boissons </p>
-                                <a href="#" class="btn btn-order" role="button"><span
-                                            class="glyphicon glyphicon-shopping-cart"></span>Commander</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="thumbnail">
-                            <img src="images/pizzas/atomica.png" alt="pizza" class="thumbnail">
-                            <div class="price">12.80 €</div>
-                            <div class="caption">
-                                <h4>Menu Classic</h4>
-                                <p>Formule: Pizza, Salade, Tomate, Cornichon + Frites + Boissons </p>
-                                <a href="#" class="btn btn-order" role="button"><span
-                                            class="glyphicon glyphicon-shopping-cart"></span>Commander</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-
         </div>
-
     </div>
 {% endblock %}

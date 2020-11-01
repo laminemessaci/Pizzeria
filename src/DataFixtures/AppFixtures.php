@@ -10,10 +10,11 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
+        /*
          $recette1 = new Recette();
          $recette1->setNom("Atomica")
              ->setPrix(10.80)
-             ->setImage("pizzas/atomica.png")
+             ->setImage("pizzas/p1.png")
              ->setDescription("tomate, mozza, viandes hachée, olives, origon, ail-persil");
          $manager->persist($recette1);
 
@@ -83,14 +84,14 @@ class AppFixtures extends Fixture
         $recette9 = new Recette();
         $recette9->setNom("Prosciutto")
             ->setPrix(11.00)
-            ->setImage("pizzas/proscioto.png")
+            ->setImage("pizzas/p3.png")
             ->setDescription("Origan, fromage, tomate, jambon");
         $manager->persist($recette9);
 
         $recette10 = new Recette();
         $recette10->setNom("Prosciutto Funghi")
             ->setPrix(12.20)
-            ->setImage("pizzas/prosciotof.png")
+            ->setImage("pizzas/p4.png")
             ->setDescription("Origan, fromage, tomate, champignons, jambon");
         $manager->persist($recette10);
 
@@ -110,6 +111,214 @@ class AppFixtures extends Fixture
 
 
 
+        $recette = new Recette();
+        $recette->setNom("Terreno")
+            ->setPrix(11.00)
+            ->setImage("saldes/terreno.jpg")
+            ->setDescription("Salade, croûton, lardons, gorgonzola, avocat, tomate");
+        $manager->persist($recette);
+
+        $recette1 = new Recette();
+        $recette1->setNom("Neptune")
+            ->setPrix(13.00)
+            ->setImage("saldes/neptune.jpg")
+            ->setDescription("Salade, avocat, asperges, tomates, saumon fumé");
+        $manager->persist($recette1);
+
+        $recette2 = new Recette();
+        $recette2->setNom("Pollaïo")
+            ->setPrix(11.20)
+            ->setImage("saldes/pollaio.jpg")
+            ->setDescription("Salade, tomate, mousse de canard, blanc de volaille, noix, croûtons");
+        $manager->persist($recette2);
+
+        $recette3 = new Recette();
+        $recette3->setNom("Peisane")
+            ->setPrix(11.60)
+            ->setImage("saldes/peisane.jpg")
+            ->setDescription("Salade, thon, riz, avocat, tomate");
+        $manager->persist($recette3);
+
+        $recette4 = new Recette();
+        $recette4->setNom("Riviera")
+            ->setPrix(12.50)
+            ->setImage("saldes/riviera.jpg")
+            ->setDescription("Salade, thon, riz, avocat, tomate");
+        $manager->persist($recette4);
+
+        $recette5 = new Recette();
+        $recette5->setNom("Andréa")
+            ->setPrix(12.00)
+            ->setImage("saldes/andrea.jpg")
+            ->setDescription("Salade, crevettes, asperges, tomate");
+        $manager->persist($recette5);
+
+        $recette6 = new Recette();
+        $recette6->setNom("Fresca")
+            ->setPrix(12.50)
+            ->setImage("saldes/fresca.jpg")
+            ->setDescription("Salade, crevettes, asperges, tomate");
+        $manager->persist($recette6);
+
+        $recette6 = new Recette();
+        $recette6->setNom("Provolone")
+            ->setPrix(11.80)
+            ->setImage("saldes/provolone.jpg")
+            ->setDescription("Salade, tomate, jambon, provolone, olives");
+        $manager->persist($recette6);
+
+        $recette7 = new Recette();
+        $recette7->setNom("Sanluri")
+            ->setPrix(12.80)
+            ->setImage("saldes/sanluri.jpg")
+            ->setDescription("Salade, tomate, chou rouge, oeuf dur, fromage, mortadelle, olives");
+        $manager->persist($recette6);
+        $recette8 = new Recette();
+        $recette8->setNom("Mozza")
+            ->setPrix(11.80)
+            ->setImage("saldes/mozza.jpg")
+            ->setDescription("Salade, tomate, mozzarella, câpres, anchois, olives, origan, huile d'olives");
+        $manager->persist($recette8);
+
+        $recette9 = new Recette();
+        $recette9->setNom("Assiette Frédérico")
+            ->setPrix(13.80)
+            ->setImage("saldes/frederico.jpg")
+            ->setDescription("Salade de gésiers de canard, champignons, tomate, ciboulette");
+        $manager->persist($recette9);
+
+        $recette10 = new Recette();
+        $recette10->setNom("Assiette Adriano")
+            ->setPrix(13.80)
+            ->setImage("saldes/adriano.jpg")
+            ->setDescription("Salade, lardon cuit, noix, croûtons, tomate");
+        $manager->persist($recette10);
+
+        $recette1 = new Recette();
+        $recette1->setNom("Menu classic")
+            ->setPrix(10.00)
+            ->setImage("menus/m1.png")
+            ->setDescription("Sandwich: Burger, Salade, Tomate, Cornichon + Frites + Boisson");
+        $manager->persist($recette1);
+
+        $recette2 = new Recette();
+        $recette2->setNom("Menu Bacon")
+            ->setPrix(09.80)
+            ->setImage("m2.png")
+            ->setDescription("Sandwich: Burger, Fromage, Bacon, Salade, Tomate + Frites + Boisson");
+        $manager->persist($recette2);
+
+        $recette3 = new Recette();
+        $recette3->setNom("Menu Big")
+            ->setPrix(11.00)
+            ->setImage("m3.png")
+            ->setDescription("Sandwich: Burger, Salade, Tomate, Cornichon + Frites + Boisson");
+        $manager->persist($recette3);
+
+        $recette4 = new Recette();
+        $recette4->setNom("Menu Chicken")
+            ->setPrix(12.00)
+            ->setImage("m4.png")
+            ->setDescription("Sandwich: Poulet Frit, Tomate, Salade, Mayonnaise + Frites + Boisson");
+        $manager->persist($recette4);
+
+        $recette5 = new Recette();
+        $recette5->setNom("Menu Fish")
+            ->setPrix(11.50)
+            ->setImage("m5.png")
+            ->setDescription("Sandwich: Poisson, Salade, Mayonnaise, Cornichon + Frites + Boisson");
+        $manager->persist($recette5);
+
+        $recette6 = new Recette();
+        $recette6->setNom("Menu Double Steak")
+            ->setPrix(12.80)
+            ->setImage("m6.png")
+            ->setDescription("Sandwich: Double Burger, Fromage, Bacon, Salade, Tomate + Frites + Boisson");
+        $manager->persist($recette6);
+
+
+
+        $recette1 = new Recette();
+        $recette1->setNom("Coca-Cola")
+            ->setPrix(1.90)
+            ->setImage("bo1.png")
+            ->setDescription("Au choix: Petit, Moyen ou Grand");
+        $manager->persist($recette1);
+
+
+        $recette2 = new Recette();
+        $recette2->setNom("Coca-Cola Light")
+            ->setPrix(1.90)
+            ->setImage("bo2.png")
+            ->setDescription("Au choix: Petit, Moyen ou Grand");
+        $manager->persist($recette2);
+
+        $recette3 = new Recette();
+        $recette3->setNom("Coca-Cola Zéro")
+            ->setPrix(1.90)
+            ->setImage("bo3.png")
+            ->setDescription("Au choix: Petit, Moyen ou Grand");
+        $manager->persist($recette3);
+
+        $recette4 = new Recette();
+        $recette4->setNom("Fanta")
+            ->setPrix(1.90)
+            ->setImage("bo4.png")
+            ->setDescription("Au choix: Petit, Moyen ou Grand");
+        $manager->persist($recette4);
+
+        $recette5 = new Recette();
+        $recette5->setNom("Sprite")
+            ->setPrix(1.90)
+            ->setImage("bo5.png")
+            ->setDescription("Au choix: Petit, Moyen ou Grand");
+        $manager->persist($recette5);
+
+        $recette6 = new Recette();
+        $recette6->setNom("Nestea")
+            ->setPrix(1.90)
+            ->setImage("bo6.png")
+            ->setDescription("Au choix: Petit, Moyen ou Grand");
+        $manager->persist($recette6);
+        */
+
+        $recette1 = new Recette();
+        $recette1->setNom("Fondant au chocolat")
+            ->setPrix(3.90)
+            ->setImage("d1.png")
+            ->setDescription("Au choix: Chocolat Blanc ou au lait");
+        $manager->persist($recette1);
+
+        $recette2 = new Recette();
+        $recette2->setNom("Muffin")
+            ->setPrix(2.80)
+            ->setImage("d2.png")
+            ->setDescription("Au choix: Au fruits ou au chocolat");
+        $manager->persist($recette2);
+
+        $recette3 = new Recette();
+        $recette3->setNom("Beignet")
+            ->setPrix(3.90)
+            ->setImage("d3.png")
+            ->setDescription("Au choix: Au chocolat ou Ã  la vanille");
+        $manager->persist($recette3);
+
+        $recette4 = new Recette();
+        $recette4->setNom("Milkshake")
+            ->setPrix(3.90)
+            ->setImage("d4.png")
+            ->setDescription("Au choix: Fraise, Vanille ou Chocolat");
+        $manager->persist($recette4);
+
+        $recette5 = new Recette();
+        $recette5->setNom("Sundae")
+            ->setPrix(4.90)
+            ->setImage("d5.png")
+            ->setDescription("Au choix: Fraise, Caramel ou Chocolat");
+        $manager->persist($recette5);
+
+
         $manager->flush();
+
     }
 }
