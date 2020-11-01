@@ -280,7 +280,7 @@ class AppFixtures extends Fixture
             ->setImage("bo6.png")
             ->setDescription("Au choix: Petit, Moyen ou Grand");
         $manager->persist($recette6);
-        */
+
 
         $recette1 = new Recette();
         $recette1->setNom("Fondant au chocolat")
@@ -317,7 +317,7 @@ class AppFixtures extends Fixture
             ->setDescription("Au choix: Fraise, Caramel ou Chocolat");
         $manager->persist($recette5);
 
-
+  */
         $manager->flush();
 
     }

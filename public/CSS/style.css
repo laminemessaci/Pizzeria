@@ -95,11 +95,49 @@ body{
     color: #fff;
     background-color: #c13c0d;
 }
+.about
+{
+    background-color: #ffd301;
+}
+.homeImage
+{
+    width: 1200px;
+    height: 620px;
 
+}
+/*
+Home
+ */
+.container-responsive .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #c13c0d;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
 
+.container-responsive h3{
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    color: #e7480f;
+    font-size: 40px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
 
-
-
-
-
-
+.container-responsive .btn:hover {
+    background-color: #ffd301;
+}
