@@ -31,10 +31,15 @@ class AdminRecetteController extends AbstractController
     }
 
     /**
+     * @Route("/admin/recette/creation", name="admin_recette_creation")
      * @Route("/admin/recette/{id}", name="admin_recette_modification")
      */
-    public function modification(Recette $recette, Request $request): Response
+    public function modification(Recette $recette = null, Request $request): Response
     {
+        if (!$recette){
+            $recette = new Recette();
+        }
+        
         $manager = $this->getDoctrine()->getManager();
         $form = $this->createForm(RecetteType::class, $recette);
         $form ->handleRequest($request);
@@ -43,9 +48,10 @@ class AdminRecetteController extends AbstractController
             $manager-> flush();
             return $this->redirectToRoute("admin_recette");
         }
-        return $this->render('admin/modificationRecette.html.twig', [
+        return $this->render('admin/ajoutModifRecette.html.twig', [
             'recette' => $recette,
-            'form'=> $form->createView()
+            'form'=> $form->createView(),
+            'isModification' => $recette->getId() != null
         ]);
     }
 

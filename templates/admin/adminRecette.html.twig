@@ -10,7 +10,7 @@
 
         <div class="row">
             {% for categorie in categories %}
-                <h1><strong> Liste des {{categorie.name}}</strong> <a href="" class="btn btn-success btn-lg"><span
+                <h1><strong> Liste des {{categorie.name}}</strong> <a href="{{ path('admin_recette_creation') }}" class="btn btn-success btn-lg"><span
                                 class="glyphicon glyphicon-plus"></span> Ajouter</a></h1>
 
                 <table class="table table-striped table-hover table-bordered">

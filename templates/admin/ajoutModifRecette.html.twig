@@ -2,8 +2,14 @@
 
 {% block title %} Admin {% endblock %}
 
-{% block monTitre %}<span class="glyphicon glyphicon-cutlery"></span>Modification {{ recette.nom }} <span
-        class="glyphicon glyphicon-cutlery"></span> {% endblock %}
+{% block monTitre %}<span class="glyphicon glyphicon-cutlery"></span>
+    {% if isModification %}
+    Modification {{ recette.nom }}
+        {% else %}
+    Ajout d'un aliment
+    {% endif %}
+
+    <span class="glyphicon glyphicon-cutlery"></span> {% endblock %}
 {% block body %}
 
     <div class="container admin">
@@ -20,7 +26,9 @@
 
         <div class="col-sm-6 p-4 site">
             <div class="thumbnail">
+                {% if recette.categorie != null %}
                 <img src="{{ asset('images/'~recette.categorie.name~'/'~recette.image) }}" alt="...">
+                {% endif %}
                 <div class="price">{{ recette.prix|number_format(2, '.') }} €</div>
                 <div class="caption">
                     <h4> {{ recette.nom }}</h4>
