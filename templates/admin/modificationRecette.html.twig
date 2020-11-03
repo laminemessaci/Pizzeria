@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Admin {% endblock %}
+
+{% block monTitre %}<span class="glyphicon glyphicon-cutlery"></span>Modification {{ recette.nom }} <span
+        class="glyphicon glyphicon-cutlery"></span> {% endblock %}
+{% block body %}
+
+    <div class="container admin">
+    <div class="row">
+
+    <div class="col-sm-6 p-4 mt-5 " style="font: caption" >
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <div class="container text-center mt-5">
+            <input type="submit" class="btn btn-primary btn-lg p-3" value="Enregistrer">
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+        <div class="col-sm-6 p-4 site">
+            <div class="thumbnail">
+                <img src="{{ asset('images/'~recette.categorie.name~'/'~recette.image) }}" alt="...">
+                <div class="price">{{ recette.prix|number_format(2, '.') }} €</div>
+                <div class="caption">
+                    <h4> {{ recette.nom }}</h4>
+                    <p> {{ recette.description }}</p>
+                    <a href="#" class="btn btn-order  btn-primary btn-lg" role="button"><span
+                                class="glyphicon glyphicon-shopping-cart"></span> Commander</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

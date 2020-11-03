@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Admin {% endblock %}
+
+{% block monTitre %}<span class="glyphicon glyphicon-cutlery"></span> Administration  <span
+        class="glyphicon glyphicon-cutlery"></span> {% endblock %}
+{% block body %}
+
+    <div class="container admin" style="border-radius: 10px; background: #FFFFFF; padding: 60px; font-size: 14px">
+
+        <div class="row">
+            {% for categorie in categories %}
+                <h1><strong> Liste des {{categorie.name}}</strong> <a href="" class="btn btn-success btn-lg"><span
+                                class="glyphicon glyphicon-plus"></span> Ajouter</a></h1>
+
+                <table class="table table-striped table-hover table-bordered">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th> Nom</th>
+                        <th> Description</th>
+                        <th> Prix</th>
+                        <th> Catégorie</th>
+                        <th> Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for recette in recettes %}
+                        {% if categorie.id == recette.categorie.id %}
+                            <tr>
+                                <td>{{ recette.nom }}</td>
+                                <td> {{ recette.description }}</td>
+                                <td>{{ recette.prix|number_format(2, '.')}} €</td>
+                                <td>{{ recette.categorie.name }}</td>
+                                <td style="width: 270px;">
+                                    <a class="btn btn-info btn-lg"
+                                       href="{{ path('admin_voir',{'id': recette.id}) }}"><span
+                                                class="glyphicon glyphicon-eye-open"></span> Voir</a>
+                                    <a class="btn btn-primary btn-lg" href="{{ path('admin_recette_modification',{'id': recette.id}) }}"><span
+                                                class="glyphicon glyphicon-pencil"></span> Modifier</a>
+                                    <a class="btn btn-danger btn-lg" href="{{ path('admin_recette') }}"><span
+                                                class="glyphicon glyphicon-remove"></span> Supprimer</a>
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+

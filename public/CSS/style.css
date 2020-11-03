@@ -1,6 +1,5 @@
 body{
     background: url(../images/bg.png);
-
 }
 .site{
     font-family: 'Holtwood One SC', sans-serif;
@@ -55,12 +54,12 @@ body{
     right: 1px;
     top: -8px;
 }
-.caption > h4
+.caption>h4
 {
     color: #e7480f;
     font-size: 18px;
 }
-.caption > p
+.caption>p
 {
     height: 40px;
 }
@@ -103,7 +102,6 @@ body{
 {
     width: 1200px;
     height: 620px;
-
 }
 /*
 Home
@@ -140,4 +138,17 @@ Home
 
 .container-responsive .btn:hover {
     background-color: #ffd301;
+}
+
+/*  ADMIN */
+.admin
+{
+    padding: 50px;
+    border-radius: 10px;
+    background: #FFFFFF;
+    font-size: 14px;
+}
+.help-inline
+{
+    color: red;
 }
