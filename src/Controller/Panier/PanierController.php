@@ -15,6 +15,7 @@ class PanierController extends AbstractController
      */
     public function index(PanierService $service): Response
     {
+
         return $this->render('panier/panier.html.twig', [
             'items' => $service->getFullCart(),
             'total' => $service->getTotal()
@@ -38,8 +39,6 @@ class PanierController extends AbstractController
     public function remove(Recette $recette, PanierService $service)
     {
         $service->remove($recette);
-        return $this->render('panier/removePanier.html.twig', [
-            "recette" => $recette
-        ]);
+        return $this->redirectToRoute('panier_index');
     }
 }

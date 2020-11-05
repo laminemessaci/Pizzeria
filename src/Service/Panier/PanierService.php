@@ -70,4 +70,8 @@ class PanierService
         //dd($panierWithData);
         return $total;
     }
+
+    public function count(){
+        return array_sum($this->session['panier']);
+    }
 }
