@@ -10,7 +10,8 @@
 
         <div class="row">
             {% for categorie in categories %}
-                <h1><strong> Liste des {{categorie.name}}</strong> <a href="{{ path('admin_recette_creation') }}" class="btn btn-success btn-lg"><span
+                <h1><strong> Liste des {{ categorie.name }}</strong> <a href="{{ path('admin_recette_creation') }}"
+                                                                        class="btn btn-success btn-lg"><span
                                 class="glyphicon glyphicon-plus"></span> Ajouter</a></h1>
 
                 <table class="table table-striped table-hover table-bordered">
@@ -27,18 +28,27 @@
                     {% for recette in recettes %}
                         {% if categorie.id == recette.categorie.id %}
                             <tr>
-                                <td>{{ recette.nom }}</td>
+                                <td><strong>{{ recette.nom }}</strong></td>
                                 <td> {{ recette.description }}</td>
-                                <td>{{ recette.prix|number_format(2, '.')}} €</td>
+                                <td>{{recette.prix|number_format(2, '.')}}€</td>
                                 <td>{{ recette.categorie.name }}</td>
-                                <td style="width: 270px;">
-                                    <a class="btn btn-info btn-lg"
-                                       href="{{ path('admin_voir',{'id': recette.id}) }}"><span
-                                                class="glyphicon glyphicon-eye-open"></span> Voir</a>
-                                    <a class="btn btn-primary btn-lg" href="{{ path('admin_recette_modification',{'id': recette.id}) }}"><span
-                                                class="glyphicon glyphicon-pencil"></span> Modifier</a>
-                                    <a class="btn btn-danger btn-lg" href="{{ path('admin_recette') }}"><span
-                                                class="glyphicon glyphicon-remove"></span> Supprimer</a>
+                                <td style="width: 310px;">
+                                    <div class="container row">
+                                        <a class="btn btn-info btn-lg m-2"
+                                           href="{{ path('admin_voir',{'id': recette.id}) }}"><span
+                                                    class="glyphicon glyphicon-eye-open"></span> Voir</a>
+                                        <a class="btn btn-primary btn-lg m-2"
+                                           href="{{ path('admin_recette_modification',{'id': recette.id}) }}"><span
+                                                    class="glyphicon glyphicon-pencil"></span> Modifier</a>
+                                        <form method="POST"
+                                              action="{{ path('admin_recette_suppression', {'id': recette.id}) }}">
+                                            <input type="hidden" name="_method" value="delete">
+                                            <input type="hidden" name="_token" value="{{ csrf_token('SUP'~recette.id) }}">
+                                            <input type="submit" class="btn btn-danger btn-lg m-2" value="Supprimer" onsubmit="return confirm('Confirmer?')">
+                                        </form>
+                                    </div>
+
+
                                 </td>
                             </tr>
                         {% endif %}

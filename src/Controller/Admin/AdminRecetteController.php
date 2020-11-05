@@ -32,9 +32,9 @@ class AdminRecetteController extends AbstractController
 
     /**
      * @Route("/admin/recette/creation", name="admin_recette_creation")
-     * @Route("/admin/recette/{id}", name="admin_recette_modification")
+     * @Route("/admin/recette/{id}", name="admin_recette_modification", methods="GET|POST")
      */
-    public function modification(Recette $recette = null, Request $request): Response
+    public function ajoutModification(Recette $recette = null, Request $request): Response
     {
         if (!$recette){
             $recette = new Recette();
@@ -64,4 +64,21 @@ class AdminRecetteController extends AbstractController
             'recette' => $recette
         ]);
     }
+
+    /**
+     * @Route("/admin/recette/{id}", name="admin_recette_suppression", methods="delete")
+     */
+    public function suppression(Recette $recette = null, Request $request): Response
+    {
+        if ($this->isCsrfTokenValid("SUP".$recette->getId(), $request->get('_token'))){
+            $manager = $this->getDoctrine()->getManager();
+            $manager->remove($recette);
+            $manager->flush();
+            return $this->redirectToRoute("admin_recette");
+        }
+
+
+    }
+
+
 }

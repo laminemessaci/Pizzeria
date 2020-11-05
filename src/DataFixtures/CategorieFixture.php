@@ -112,6 +112,7 @@ class CategorieFixture extends Fixture
         $recette10->setCategorie($categorie2);
 
         */
+
         $manager->flush();
 
     }

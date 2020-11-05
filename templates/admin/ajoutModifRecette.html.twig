@@ -8,15 +8,21 @@
         {% else %}
     Ajout d'un aliment
     {% endif %}
-
     <span class="glyphicon glyphicon-cutlery"></span> {% endblock %}
-{% block body %}
 
+{% block body %}
+    <hr>
+    <hr>
     <div class="container admin">
     <div class="row">
 
     <div class="col-sm-6 p-4 mt-5 " style="font: caption" >
         {{ form_start(form) }}
+        <div> {{ form_row(form.nom, { "attr": {'style': 'font-size:16px'}}) }}</div>
+        <div> {{ form_row(form.prix, { "attr": {'style': 'font-size:16px'}}) }}</div>
+        <div> {{ form_row(form.image, { "attr": {'style': 'font-size:16px'}}) }}</div>
+        <div> {{ form_row(form.description, { "attr": {'style': 'font-size:16px'}}) }}</div>
+        <div> {{ form_row(form.categorie, { "attr": {'style': 'font-size:16px'}}) }}</div>
         {{ form_widget(form) }}
         <div class="container text-center mt-5">
             <input type="submit" class="btn btn-primary btn-lg p-3" value="Enregistrer">

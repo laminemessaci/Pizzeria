@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Recette;
 use App\Repository\CategorieRepository;
 use App\Repository\RecetteRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -30,4 +31,5 @@ class RecetteController extends AbstractController
     {
         return $this->render('home/home.html.twig');
     }
+
 }

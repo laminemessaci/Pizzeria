@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panier{% endblock %}
+{% block monTitre %}<span class="glyphicon glyphicon-cutlery"></span> Votre Panier <span
+        class="glyphicon glyphicon-cutlery"></span> {% endblock %}
+{% block body %}
+    <div class="container admin">
+        <div class="container text-center">
+            <h2><strong>{{ recette.nom }}</strong></h2>
+        </div>
+        <div class="row">
+            <br>
+            <div class="container text-center">
+                <h2 class="alert alert-success"> Produit Ajouté au panier avec succés </h2>
+                <a href="{{ path('recettes') }}">
+                    <button type="button" class="btn btn-primary btn-lg">Retourner sur la catalogue</button>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

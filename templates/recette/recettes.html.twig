@@ -5,6 +5,7 @@
 {% block monTitre %}<span class="glyphicon glyphicon-cutlery"></span> Nos produits <span
         class="glyphicon glyphicon-cutlery"></span> {% endblock %}
 {% block body %}
+
     <div class="container site">
 
         <nav class="navMenu ">
@@ -41,8 +42,9 @@
                                         <div class="caption">
                                             <h4>{{ recette.nom }}</h4>
                                             <p>{{ recette.description }}</p>
-                                            <a href="#" class="btn btn-order  btn-primary btn-lg" role="button"><span
-                                                        class="glyphicon glyphicon-shopping-cart"></span> Commander</a>
+                                            <a href="{{ path('panier_add', {'id': recette.id}) }}"
+                                               class="btn btn-order  btn-primary btn-lg" role="button"><span
+                                                        class="glyphicon glyphicon-shopping-cart"></span>Ajouter</a>
                                         </div>
                                     </div>
                                 </div>
