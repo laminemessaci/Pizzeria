@@ -12,6 +12,16 @@ class PanierService
     protected $repository;
 
     /**
+     * @return SessionInterface
+     */
+    public function getSession(): SessionInterface
+    {
+        return $this->session;
+    }
+
+
+
+    /**
      * PanierService constructor.
      * @param $session
      */

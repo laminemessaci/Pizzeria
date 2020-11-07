@@ -25,9 +25,11 @@
                              class="thumbnail" width="50px"></td>
                     <td>{{ item.recette.nom }}</td>
                     <td style="width: 50px"><input class="form-control" type="text"
-                               value="{{ item.quantity }}"/></td>
+                                                   value="{{ item.quantity }}"/></td>
                     <td class="">{{ ((item.recette.prix)*item.quantity) | number_format(2, '.') }} €</td>
-                    <td><a href="{{ path('panier_remove', {'id': item.recette.id}) }}" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></a></td>
+                    <td><a href="{{ path('panier_remove', {'id': item.recette.id}) }}"
+                           class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></a></td>
+
                 </tr>
             {% endfor %}
 
@@ -49,10 +51,12 @@
                     </a>
                 </div>
                 <div class="col-sm-12 col-md-6 text-right">
+                    <form method="post">
+                        <button type="submit" id="checkout-button"
+                                class="btn btn-lg btn-block btn-success text-uppercase">Paiement
+                        </button>
+                    </form>
 
-                    <a href="#">
-                        <button type="submit" class="btn btn-lg btn-block btn-success text-uppercase">Paiement</button>
-                    </a>
 
                 </div>
             </div>
@@ -60,16 +64,47 @@
 
         </div>
 
-
     {% else %}
         <div class="container text-center m-6 p-4">
             <h2 class="alert alert-danger">Votre panier est vide !! </h2>
             <a href="{{ path('recettes') }}">
                 <button type="button" class="btn btn-primary btn-lg">Retourner sur la catalogue</button>
             </a>
+
         </div>
 
     {% endif %}
 
-
 {% endblock %}
+  {% block javascripts %}
+
+      <script src="https://js.stripe.com/v3/"></script>
+      <script type="text/javascript">
+
+          // Create an instance of the Stripe object with your publishable API key
+          var stripe = Stripe("pk_test_51HkTZfI1nyYImKPMXmUZ5xSv5ywzhi670Pif2is23G24BkCerACnlWg0nrzEn6ri4aJ1OHPXEiQQbWcgwdVyHOcv003Wu6RdFK");
+          var checkoutButton = document.getElementById("checkout-button");
+          checkoutButton.addEventListener("click", function () {
+              fetch("/panier/create-checkout-session", {
+                  method: "POST",
+              })
+                  .then(function (response) {
+                      return response.json();
+                  })
+                  .then(function (session) {
+                      return stripe.redirectToCheckout({sessionId: session.id});
+                  })
+                  .then(function (result) {
+                      // If redirectToCheckout fails due to a browser or network
+                      // error, you should display the localized error message to your
+                      // customer using error.message.
+                      if (result.error) {
+                          alert(result.error.message);
+                      }
+                  })
+                  .catch(function (error) {
+                      console.error("Error:", error);
+                  });
+          });
+      </script>
+  {% endblock %}
