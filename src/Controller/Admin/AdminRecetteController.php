@@ -7,8 +7,6 @@ use App\Form\RecetteType;
 use App\Repository\CategorieRepository;
 use App\Repository\RecetteRepository;
 use App\Service\Panier\PanierService;
-use Doctrine\Persistence\ObjectManager;
-use phpDocumentor\Reflection\Types\This;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -38,28 +36,30 @@ class AdminRecetteController extends AbstractController
      */
     public function ajoutModification(Recette $recette = null, Request $request, PanierService $service): Response
     {
-        if (!$recette){
+        if (!$recette) {
             $recette = new Recette();
         }
-        
+
         $manager = $this->getDoctrine()->getManager();
         $form = $this->createForm(RecetteType::class, $recette);
-        $form ->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()){
-            $manager-> persist($recette);
-            $manager-> flush();
-            $this->addFlash('success', 'Le produit a été modifié!');
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $modif = $recette->getId() != null;
+            $manager->persist($recette);
+            $manager->flush();
+            $this->addFlash("success", ($modif) ? "Le produit a été modifié!" : "Le produit a été ajouté!");
             return $this->redirectToRoute("admin_recette", [
                 'items' => $service->getFullCart(),
-                'somme' => $service->count()
+                'somme' => $service->count(),
             ]);
         }
         return $this->render('admin/ajoutModifRecette.html.twig', [
             'recette' => $recette,
-            'form'=> $form->createView(),
+            'form' => $form->createView(),
             'isModification' => $recette->getId() != null,
             'items' => $service->getFullCart(),
-            'somme' => $service->count()
+            'somme' => $service->count(),
+
         ]);
     }
 
@@ -68,26 +68,27 @@ class AdminRecetteController extends AbstractController
      */
     public function voir(Recette $recette, PanierService $service): Response
     {
+
         return $this->render('admin/voirRecette.html.twig', [
             'recette' => $recette,
             'items' => $service->getFullCart(),
-            'somme' => $service->count()
+            'somme' => $service->count(),
         ]);
     }
 
     /**
      * @Route("/admin/recette/{id}", name="admin_recette_suppression", methods="delete")
      */
-    public function suppression(Recette $recette = null, Request $request, PanierService $service): Response
+    public function suppression(Recette $recette, Request $request, PanierService $service): Response
     {
-        if ($this->isCsrfTokenValid("SUP".$recette->getId(), $request->get('_token'))){
+        if ($this->isCsrfTokenValid("SUP" . $recette->getId(), $request->get('_token'))) {
             $manager = $this->getDoctrine()->getManager();
             $manager->remove($recette);
             $manager->flush();
-            $this->addFlash('success', 'Le produit a été supprimé!');
+            $this->addFlash("success", "Le produit a été supprimé!");
             return $this->redirectToRoute("admin_recette", [
                 'items' => $service->getFullCart(),
-                'somme' => $service->count()
+                'somme' => $service->count(),
             ]);
         }
 

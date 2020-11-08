@@ -49,10 +49,12 @@
                                                 <a href="{{ path('panier_add', {'id': recette.id}) }}"
                                                    class="  btn-lg" role="button"><span
                                                             class="glyphicon glyphicon-shopping-cart"></span>
-                                                <button class="cart-button"><span class="add-to-cart"> Ajouter</span>
-                                                    <span class="added">Produit ajouté</span> <i
-                                                            class="fa fa-shopping-cart"></i> <i
-                                                            class="fa fa-square"></i></button></a>
+                                                    <button class="cart-button"><span
+                                                                class="add-to-cart"> Ajouter</span>
+                                                        <span class="added">Produit ajouté</span> <i
+                                                                class="fa fa-shopping-cart"></i> <i
+                                                                class="fa fa-square"></i></button>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -67,27 +69,22 @@
         </div>
     </div>
 
-
     {% block javascripts %}
         <script>
-            document.addEventListener("DOMContentLoaded", function(event) {
+            document.addEventListener("DOMContentLoaded", function (event) {
 
 
                 const cartButtons = document.querySelectorAll('.cart-button');
 
                 cartButtons.forEach(button => {
 
-                    button.addEventListener('click',cartClick);
-
+                    button.addEventListener('click', cartClick);
                 });
 
-                function cartClick(){
-                    let button =this;
+                function cartClick() {
+                    let button = this;
                     button.classList.add('clicked');
                 }
-
-
-
             });
         </script>
 
