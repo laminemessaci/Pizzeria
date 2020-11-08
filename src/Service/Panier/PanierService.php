@@ -11,6 +11,7 @@ class PanierService
     protected $session;
     protected $repository;
 
+
     /**
      * @return SessionInterface
      */
@@ -82,6 +83,7 @@ class PanierService
     }
 
     public function count(){
-        return array_sum($this->session['panier']);
+        $panier = $this->session->get('panier', []);
+        return array_sum($panier);
     }
 }

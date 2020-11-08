@@ -20,7 +20,8 @@ class PanierController extends AbstractController
 
         return $this->render('panier/panier.html.twig', [
             'items' => $service->getFullCart(),
-            'total' => $service->getTotal()
+            'total' => $service->getTotal(),
+            'somme' => $service->count()
         ]);
     }
 
@@ -30,8 +31,12 @@ class PanierController extends AbstractController
     public function add(Recette $recette, PanierService $service)
     {
         $service->add($recette);
-        return $this->render('panier/addPanier.html.twig', [
-            "recette" => $recette,
+        // return $this->render('panier/addPanier.html.twig', [
+        //     "recette" => $recette,
+        // ]);
+        return $this->redirectToRoute('recettes', [
+            'items' => $service->getFullCart(),
+            'somme' => $service->count()
         ]);
     }
 
@@ -41,7 +46,10 @@ class PanierController extends AbstractController
     public function remove(Recette $recette, PanierService $service)
     {
         $service->remove($recette);
-        return $this->redirectToRoute('panier_index');
+        return $this->redirectToRoute('panier_index', [
+            'items' => $service->getFullCart(),
+            'somme' => $service->count()
+        ]);
     }
 
     /*
@@ -54,16 +62,22 @@ class PanierController extends AbstractController
     public function success(PanierService $service): Response
     {
 
-        return $this->render('panier/success.html.twig');
+        return $this->render('panier/success.html.twig', [
+            'items' => $service->getFullCart(),
+            'somme' => $service->count()
+        ]);
     }
 
     /**
      * @Route("/panier/error", name="error")
      */
-    public function error(): Response
+    public function error(PanierService $service): Response
     {
 
-        return $this->render('panier/error.html.twig');
+        return $this->render('panier/error.html.twig', [
+            'items' => $service->getFullCart(),
+            'somme' => $service->count()
+        ]);
     }
 
 
@@ -72,10 +86,10 @@ class PanierController extends AbstractController
      */
     public function checkout(PanierService $service)
     {
-         //$panier = $service->getSession()->get('panier', []);
+        //$panier = $service->getSession()->get('panier', []);
         //$names= $panier[$recette->getNom()];
 
-        $total = $service->getTotal()*100;
+        $total = $service->getTotal() * 100;
         //$name = strval($panier);
 
         \Stripe\Stripe::setApiKey('sk_test_51HkTZfI1nyYImKPMLCJh02TvZ81uGOTrGApvTba5EPV1X5S7qpV3UadQQyvO4cVOMI2L4YmVMTembrlbSKL6snxQ00NMJyCa7T');

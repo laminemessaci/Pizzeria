@@ -8,15 +8,14 @@
 {% block body %}
 
 
-    <div class="container site">
+    <div class="container site admin">
 
-        <nav class="navMenu ">
+        <nav class="navMenu">
             <ul class="nav nav-pills ">
-
                 {% for categorie in categories %}
                     {% if categorie.id==1 %}
-                        <li role="presentation" class="active"><a href="#{{ categorie.id }}"
-                                                                  data-toggle="tab">{{ categorie.name }}</a></li>
+                        <li role="presentation" class="active "><a href="#{{ categorie.id }}"
+                                                                   data-toggle="tab">{{ categorie.name }}</a></li>
                     {% else %}
                         <li role="presentation"><a href="#{{ categorie.id }}" data-toggle="tab">{{ categorie.name }}</a>
                         </li>
@@ -44,9 +43,17 @@
                                         <div class="caption">
                                             <h4>{{ recette.nom }}</h4>
                                             <p>{{ recette.description }}</p>
-                                            <a href="{{ path('panier_add', {'id': recette.id}) }}"
-                                               class="btn btn-order  btn-primary btn-lg" role="button"><span
-                                                        class="glyphicon glyphicon-shopping-cart"></span>Ajouter</a>
+
+
+                                            <div class="buttons">
+                                                <a href="{{ path('panier_add', {'id': recette.id}) }}"
+                                                   class="  btn-lg" role="button"><span
+                                                            class="glyphicon glyphicon-shopping-cart"></span>
+                                                <button class="cart-button"><span class="add-to-cart"> Ajouter</span>
+                                                    <span class="added">Produit ajouté</span> <i
+                                                            class="fa fa-shopping-cart"></i> <i
+                                                            class="fa fa-square"></i></button></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -59,4 +66,32 @@
             </div>
         </div>
     </div>
+
+
+    {% block javascripts %}
+        <script>
+            document.addEventListener("DOMContentLoaded", function(event) {
+
+
+                const cartButtons = document.querySelectorAll('.cart-button');
+
+                cartButtons.forEach(button => {
+
+                    button.addEventListener('click',cartClick);
+
+                });
+
+                function cartClick(){
+                    let button =this;
+                    button.classList.add('clicked');
+                }
+
+
+
+            });
+        </script>
+
+    {% endblock %}
 {% endblock %}
+
+
