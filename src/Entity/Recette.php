@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 
@@ -28,11 +29,13 @@ class Recette
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="3", max="25")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="float")
+     * @Assert\Range(min=0.2, max=100)
      */
     private $prix;
 
@@ -44,7 +47,15 @@ class Recette
      * @Vich\UploadableField(mapping="recette_image", fileNameProperty="image")
      *
      * @var File|null
+     * /**
+     * @Assert\Image(
+     *     minWidth = 200,
+     *     maxWidth = 1200,
+     *     minHeight = 200,
+     *     maxHeight = 900
+     * )
      */
+
     private $imageFile;
 
 
@@ -57,6 +68,7 @@ class Recette
 
     /**
      * @ORM\Column(type="text")
+     *  @Assert\Length(min="10", max="500")
      */
     private $description;
 
