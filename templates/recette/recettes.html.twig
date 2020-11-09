@@ -37,13 +37,12 @@
                             {% if (recette.categorie.id == categorie.id) %}
                                 <div class="col-sm-6 col-md-4">
                                     <div class="thumbnail">
-                                        <img src="{{ asset('images/'~categorie.name~'/'~recette.image) }}" alt="pizza"
-                                             class="thumbnail">
+                                      <a href="{{ path('admin_voir',{'id': recette.id}) }}"> <img src="{{ asset('images/recettes/'~recette.image) }}" alt="pizza"
+                                             class="thumbnail"></a>
                                         <div class="price">{{ recette.prix|number_format(2, '.') }} €</div>
                                         <div class="caption">
                                             <h4>{{ recette.nom }}</h4>
                                             <p>{{ recette.description }}</p>
-
 
                                             <div class="buttons">
                                                 <a href="{{ path('panier_add', {'id': recette.id}) }}"

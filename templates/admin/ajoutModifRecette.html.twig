@@ -4,9 +4,9 @@
 
 {% block monTitre %}<span class="glyphicon glyphicon-cutlery"></span>
     {% if isModification %}
-    Modification {{ recette.nom }}
-        {% else %}
-    Ajout d'un aliment
+        Modification {{ recette.nom }}
+    {% else %}
+        Ajout d'un aliment
     {% endif %}
     <span class="glyphicon glyphicon-cutlery"></span> {% endblock %}
 
@@ -16,34 +16,45 @@
     <div class="container admin">
     <div class="row">
 
-    <div class="col-sm-6 p-4 mt-5 " style="font: caption" >
-        {{ form_start(form) }}
-        <div> {{ form_row(form.nom, { "attr": {'style': 'font-size:16px'}}) }}</div>
-        <div> {{ form_row(form.prix, { "attr": {'style': 'font-size:16px'}}) }}</div>
-        <div> {{ form_row(form.image, { "attr": {'style': 'font-size:16px'}}) }}</div>
-        <div> {{ form_row(form.description, { "attr": {'style': 'font-size:16px'}}) }}</div>
-        <div> {{ form_row(form.categorie, { "attr": {'style': 'font-size:16px'}}) }}</div>
-        {{ form_widget(form) }}
-        <div class="container text-center mt-5">
-            <input type="submit" class="btn btn-primary btn-lg p-3" value="Enregistrer">
-            {{ form_end(form) }}
-        </div>
-    </div>
-
-        <div class="col-sm-6 p-4 site">
-            <div class="thumbnail">
-                {% if recette.categorie != null %}
-                <img src="{{ asset('images/'~recette.categorie.name~'/'~recette.image) }}" alt="...">
-                {% endif %}
-                <div class="price">{{ recette.prix|number_format(2, '.') }} €</div>
-                <div class="caption">
-                    <h4> {{ recette.nom }}</h4>
-                    <p> {{ recette.description }}</p>
-                    <a href="#" class="btn btn-order  btn-primary btn-lg" role="button"><span
-                                class="glyphicon glyphicon-shopping-cart"></span> Commander</a>
-                </div>
+        <div class="col-sm-6 p-4 mt-5 " style="font: caption">
+            {{ form_start(form) }}
+            <div> {{ form_row(form.nom, { "attr": {'style': 'font-size:16px'}}) }}</div>
+            <div> {{ form_row(form.prix, { "attr": {'style': 'font-size:16px'}}) }}</div>
+            <div> {{ form_row(form.imageFile, { "attr": {'style': 'font-size:16px'}}) }}</div>
+            <div> {{ form_row(form.description, { "attr": {'style': 'font-size:16px'}}) }}</div>
+            <div> {{ form_row(form.categorie, { "attr": {'style': 'font-size:16px'}}) }}</div>
+            {{ form_widget(form) }}
+            <div class="container text-center mt-5">
+                <input type="submit" class="btn btn-primary btn-lg p-3" value="Enregistrer">
+                {{ form_end(form) }}
             </div>
         </div>
+        {% if isModification %}
+            <div class="col-sm-6 p-4 site">
+                <div class="thumbnail">
+                    {% if recette.categorie != null %}
+                        <img src="{{ asset('images/recettes/'~recette.image) }}" alt="...">
+                    {% endif %}
+                    <div class="price">{{ recette.prix|number_format(2, '.') }} €</div>
+                    <div class="caption">
+                        <h4> {{ recette.nom }}</h4>
+                        <p> {{ recette.description }}</p>
+                        <div class="buttons">
+                            <a href="{{ path('panier_add', {'id': recette.id}) }}"
+                               class="  btn-lg" role="button"><span
+                                        class="glyphicon glyphicon-shopping-cart"></span>
+                                <button class="cart-button"><span
+                                            class="add-to-cart"> Ajouter</span>
+                                    <span class="added">Produit ajouté</span> <i
+                                            class="fa fa-shopping-cart"></i> <i
+                                            class="fa fa-square"></i></button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+        {% endif %}
 
     </div>
 

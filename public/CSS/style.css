@@ -101,8 +101,8 @@ body{
 }
 .homeImage
 {
-    width: 1200px;
-    height: 620px;
+    width: 1100px;
+    height: 520px;
 }
 /*
 Home
@@ -135,8 +135,8 @@ Home
     cursor: pointer;
     border-radius: 5px;
     text-align: center;
-}
 
+.}
 .container-responsive .btn:hover {
     background-color: #ffd301;
 }
@@ -146,7 +146,7 @@ Home
 {
     padding: 50px;
     border-radius: 10px;
-    background: #FFFFFF;
+    background: #fdfdfc;
     font-size: 14px;
 }
 .help-inline
@@ -158,7 +158,9 @@ Home
     border: 2px dotted orange;
 }
 
-
+/*
+Cart Button
+ */
 .buttons {
     margin: 0;
     padding: 0;
@@ -289,3 +291,4 @@ Home
         opacity: 1
     }
 }
+

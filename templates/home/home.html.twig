@@ -3,63 +3,52 @@
 {% block title %} HOME {% endblock %}
 
 {% block body %}
+    <div class=" container-fluid row-auto">
 
-    <section class="image_presentation ">
-        <div class="container-responsive  p-2 m-2 text-center ">
-            <img class="rounded-circle homeImage" src="{{ asset('images/bgHome.jpg') }}" alt="image"
-                 href={{ path('recettes') }}>
-            <button class="btn btn-order rounded-pill" style="width:10%" href={{ path('recettes') }}>Nos produits</button>
-            <h3 style="font-size: 50px"> Bienvenu au saveur italien</h3>
+
+        <div class="image_presentation ">
+            <div class="container-responsive  p-2 m-2 text-center ">
+                <img class="rounded-circle homeImage" src="{{ asset('images/bgHome.jpg') }}" alt="image"
+                     href={{ path('recettes') }}>
+                <button class="btn btn-order rounded-pill" style="width:10%" href={{ path('recettes') }}>Nos produits
+                </button>
+                <h3 style="font-size: 50px"> Bienvenu au saveur italien</h3>
+            </div>
         </div>
-    </section>
-    <!-- Page Content -->
-    <div class="container p-4 mt-4 ">
-        <!-- Content Row -->
-        <div class="row">
-            <div class="col-md-4 mb-2 ">
-                <div class="card h-100 ">
-                    <div class="card-body about">
-                        <h2 class="card-title">Card One</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex
-                            numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-primary btn-sm">More Info</a>
-                    </div>
-                </div>
+
+        <section id="container">
+            <div id="carousel">
+                <figure><img
+                            src="{{ asset('images/home1.jpg') }}" class="img-responsive">
+                </figure>
+                <figure><img
+                            src="{{ asset('images/home2.jpg') }}" class="img-responsive">
+                </figure>
+                <figure><img
+                            src="{{ asset('images/home3.jpg') }}" class="img-responsive">
+                </figure>
+                <figure><img
+                            src="{{ asset('images/home4.jpg') }}" class="img-responsive">
+                </figure>
+                <figure><img
+                            src="{{ asset('images/home5.jpg') }}" class="img-responsive">
+                </figure>
+                <figure><img
+                            src="{{ asset('images/home6.jpg') }}" class="img-responsive">
+                </figure>
+                <figure><img
+                            src="{{ asset('images/home7.jpg') }}" class="img-responsive" >
+                </figure>
+                <figure><img
+                            src="{{ asset('images/home8.jpg') }}" class="img-responsive"">
+                </figure>
+                <figure><img
+                            src="{{ asset('images/home9.jpg') }}" class="img-responsive">
+                </figure>
             </div>
-            <!-- /.col-md-4 -->
-            <div class="col-md-4 mb-2">
-                <div class="card h-100 ">
-                    <div class="card-body about">
-                        <h2 class="card-title">Card Two</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex
-                            natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore
-                            voluptates quos eligendi labore.</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-primary btn-sm">More Info</a>
-                    </div>
-                </div>
-            </div>
-            <!-- /.col-md-4 -->
-            <div class="col-md-4 mb-2">
-                <div class="card h-100 ">
-                    <div class="card-body about">
-                        <h2 class="card-title">Card Three</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex
-                            numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-primary btn-sm">More Info</a>
-                    </div>
-                </div>
-            </div>
-            <!-- /.col-md-4 -->
-        </div>
-        <!-- /.row -->
+        </section>
+
 
     </div>
-    <!-- /.container -->
 
 {% endblock %}
