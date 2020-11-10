@@ -39,6 +39,9 @@ class User
      */
     private $password;
 
+    private $verificationPassword;
+
+
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
@@ -106,6 +109,24 @@ class User
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getVerificationPassword()
+    {
+        return $this->verificationPassword;
+    }
+
+    /**
+     * @param mixed $verificationPassword
+     */
+    public function setVerificationPassword($verificationPassword): void
+    {
+        $this->verificationPassword = $verificationPassword;
+    }
+
+
 
     public function getRole(): ?string
     {
