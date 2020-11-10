@@ -6,9 +6,14 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(
+ *     fields={"username"}
+ * )
  */
 class User
 {
@@ -21,24 +26,32 @@ class User
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length (min="3", max="15")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length (min="3", max="15")
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length (min="3", max="15")
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length (min="3", max="15")
      */
     private $password;
 
+    /**
+     * @Assert\Length (min="3", max="15")
+     * @Assert\EqualTo(propertyPath="password", message="les deux mots de passe ne sont pas equivalents!")
+     */
     private $verificationPassword;
 
 
