@@ -20,7 +20,7 @@
             <tbody>
             {% for item in items %}
                 <tr>
-                    <td><img src="{{ asset('images/'~item.recette.categorie.name~'/'~item.recette.image) }}"
+                    <td><img src="{{ asset('images/recettes/'~item.recette.image) }}"
                              alt="img_produit"
                              class="thumbnail" width="50px"></td>
                     <td>{{ item.recette.nom }}</td>
@@ -62,18 +62,16 @@
             </div>
         </div>
 
-        </div>
-
     {% else %}
         <div class="container text-center m-6 p-4">
             <h2 class="alert alert-danger">Votre panier est vide !! </h2>
             <a href="{{ path('recettes') }}">
                 <button type="button" class="btn btn-primary btn-lg">Retourner sur la catalogue</button>
             </a>
-
         </div>
-
+        </div>
     {% endif %}
+</div>
 
 {% endblock %}
   {% block javascripts %}

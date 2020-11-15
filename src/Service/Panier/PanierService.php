@@ -45,6 +45,7 @@ class PanierService
         }
         $this->session->set('panier', $panier);
         //dd($session->get('panier'));
+
     }
 
     public function remove(Recette $recette)

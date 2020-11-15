@@ -4,6 +4,8 @@ namespace App\Controller\Panier;
 
 use App\Entity\Recette;
 use App\Service\Panier\PanierService;
+use Stripe\Checkout\Session;
+use Stripe\Stripe;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -86,21 +88,21 @@ class PanierController extends AbstractController
      */
     public function checkout(PanierService $service)
     {
-        //$panier = $service->getSession()->get('panier', []);
+        $panier = $service->getSession()->get('panier', []);
         //$names= $panier[$recette->getNom()];
 
         $total = $service->getTotal() * 100;
         //$name = strval($panier);
 
-        \Stripe\Stripe::setApiKey('sk_test_51HkTZfI1nyYImKPMLCJh02TvZ81uGOTrGApvTba5EPV1X5S7qpV3UadQQyvO4cVOMI2L4YmVMTembrlbSKL6snxQ00NMJyCa7T');
+        Stripe::setApiKey('sk_test_51HkTZfI1nyYImKPMLCJh02TvZ81uGOTrGApvTba5EPV1X5S7qpV3UadQQyvO4cVOMI2L4YmVMTembrlbSKL6snxQ00NMJyCa7T');
 
-        $session = \Stripe\Checkout\Session::create([
+        $session = Session::create([
             'payment_method_types' => ['card'],
             'line_items' => [[
                 'price_data' => [
                     'currency' => 'eur',
                     'product_data' => [
-                        'name' => 'Pizza',
+                        'name' => 'Subito76',
                     ],
                     'unit_amount' => $total,
                 ],
