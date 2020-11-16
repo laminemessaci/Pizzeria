@@ -4,74 +4,76 @@
 {% block monTitre %}<span class="glyphicon glyphicon-cutlery"></span> Panier <span
         class="glyphicon glyphicon-cutlery"></span> {% endblock %}
 {% block body %}
-    <div class="container admin ">
+    <div class="container admin site" style="margin-bottom: 150px">
 
-    {% if items | length > 0 %}
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th scope="col">image</th>
-                <th scope="col">Nom produit</th>
-                <th scope="col" class="text-center">Quantité</th>
-                <th scope="col" class="text-left">Prix</th>
-                <th scope="col" class="text-left"></th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for item in items %}
+        {% if items | length > 0 %}
+            <table class="table table-striped">
+                <thead>
                 <tr>
-                    <td><img src="{{ asset('images/recettes/'~item.recette.image) }}"
-                             alt="img_produit"
-                             class="thumbnail" width="50px"></td>
-                    <td>{{ item.recette.nom }}</td>
-                    <td style="width: 50px"><input class="form-control" type="text"
-                                                   value="{{ item.quantity }}"/></td>
-                    <td class="">{{ ((item.recette.prix)*item.quantity) | number_format(2, '.') }} €</td>
-                    <td><a href="{{ path('panier_remove', {'id': item.recette.id}) }}"
-                           class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></a></td>
-
+                    <th scope="col">image</th>
+                    <th scope="col">Nom produit</th>
+                    <th scope="col" class="text-center">Quantité</th>
+                    <th scope="col" class="text-left">Prix</th>
+                    <th scope="col" class="text-left"></th>
                 </tr>
-            {% endfor %}
+                </thead>
+                <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td><img src="{{ asset('images/recettes/'~item.recette.image) }}"
+                                 alt="img_produit"
+                                 class="thumbnail" width="50px"></td>
+                        <td>{{ item.recette.nom }}</td>
+                        <td style="width: 50px"><input class="form-control" type="text"
+                                                       value="{{ item.quantity }}"/></td>
+                        <td class="">{{ ((item.recette.prix)*item.quantity) | number_format(2, '.') }} €</td>
+                        <td><a href="{{ path('panier_remove', {'id': item.recette.id}) }}"
+                               class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></a></td>
 
-            </tbody>
-            <tfoot>
-            <tr>
-                <td colspan="3" class="text-right"><strong>Total: </strong></td>
-                <td><strong>{{ total|number_format(2, '.') }} €</strong></td>
-                <td></td>
-            </tr>
+                    </tr>
+                {% endfor %}
 
-            </tfoot>
-        </table>
-        <div class="col mb-2">
-            <div class="row">
-                <div class="col-sm-12  col-md-6">
-                    <a href="#">
-                        <button class="btn btn-lg btn-block btn-success text-uppercase"> Retourner</button>
-                    </a>
-                </div>
-                <div class="col-sm-12 col-md-6 text-right">
-                    <form method="post">
-                        <button type="submit" id="checkout-button"
-                                class="btn btn-lg btn-block btn-success text-uppercase">Paiement
-                        </button>
-                    </form>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="3" class="text-right"><strong>Total: </strong></td>
+                    <td><strong>{{ total|number_format(2, '.') }} €</strong></td>
+                    <td></td>
+                </tr>
+
+                </tfoot>
+            </table>
+            <div class="col mb-2">
+                <div class="row">
+                    <div class="col-sm-12  col-md-6">
+                        <a href="#">
+                            <button class="btn btn-lg btn-block btn-success text-uppercase"> Retourner</button>
+                        </a>
+                    </div>
+                    <div class="col-sm-12 col-md-6 text-right">
+                        <form method="post">
+                            <button type="submit" id="checkout-button"
+                                    class="btn btn-lg btn-block btn-success text-uppercase">Paiement
+                            </button>
+                        </form>
 
 
+                    </div>
                 </div>
             </div>
-        </div>
 
-    {% else %}
-        <div class="container text-center m-6 p-4">
-            <h2 class="alert alert-danger">Votre panier est vide !! </h2>
-            <a href="{{ path('recettes') }}">
-                <button type="button" class="btn btn-primary btn-lg">Retourner sur la catalogue</button>
-            </a>
-        </div>
-        </div>
-    {% endif %}
-</div>
+        {% else %}
+            <div class="container text-center m-6 p-4">
+                <h2 class="alert alert-danger">Votre panier est vide !! </h2>
+                <a href="{{ path('recettes') }}">
+                    <button type="button" class="btn btn-primary btn-lg">Retourner sur la catalogue</button>
+                </a>
+            </div>
+
+        {% endif %}
+    </div>
+
+
 
 {% endblock %}
   {% block javascripts %}

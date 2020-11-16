@@ -14,7 +14,7 @@ class AppFixtures extends Fixture
          $recette1 = new Recette();
          $recette1->setNom("Atomica")
              ->setPrix(10.80)
-             ->setImage("pizzas/p1.png")
+             ->setImage("pizzas/p1.png.png")
              ->setDescription("tomate, mozza, viandes hachée, olives, origon, ail-persil");
          $manager->persist($recette1);
 
@@ -322,105 +322,105 @@ class AppFixtures extends Fixture
         $recette1 = new Recette();
         $recette1->setNom("Tagliatelles Carbonara")
             ->setPrix(12.50)
-            ->setImage("p1.png")
+            ->setImage("p1.png.png")
             ->setDescription("lardons crème, œuf, fromage");
         $manager->persist($recette1);
 
         $recette2 = new Recette();
         $recette2->setNom("Tagliatelles Polo")
             ->setPrix(12.20)
-            ->setImage("p1.png")
+            ->setImage("p1.png.png")
             ->setDescription("poulet, crème, œuf, fromage");
         $manager->persist($recette2);
 
         $recette3 = new Recette();
         $recette3->setNom("Tagliatelles Salmone")
             ->setPrix(13.80)
-            ->setImage("p1.png")
+            ->setImage("p1.png.png")
             ->setDescription("saumon, crème, tomate");
         $manager->persist($recette3);
 
         $recette4 = new Recette();
         $recette4->setNom("Fusilli Tre Formagio")
             ->setPrix(12.50)
-            ->setImage("p1.png")
+            ->setImage("p1.png.png")
             ->setDescription("gorgonzola, chèvre, mascarpone");
         $manager->persist($recette4);
 
         $recette5 = new Recette();
         $recette5->setNom("Tagliérini Norvégese")
             ->setPrix(13.90)
-            ->setImage("p1.png")
+            ->setImage("p1.png.png")
             ->setDescription("saumon fumé, crème, une pointe de whisky");
         $manager->persist($recette5);
 
         $recette6 = new Recette();
         $recette6->setNom("Tagliérini Adriatique")
             ->setPrix(14.20)
-            ->setImage("p1.png")
+            ->setImage("p1.png.png")
             ->setDescription("saumon, sole tropicale, crevettes, tomate, une pointe de pastis");
         $manager->persist($recette6);
 
         $recette7 = new Recette();
         $recette7->setNom("Parpadelle San Romolo")
             ->setPrix(13.00)
-            ->setImage("p1.png")
+            ->setImage("p1.png.png")
             ->setDescription("courgettes, ail, basilic, huile d'olive");
         $manager->persist($recette7);
 
         $recette8 = new Recette();
         $recette8->setNom("Parpadelle al Melanzane ")
             ->setPrix(12.90)
-            ->setImage("p1.png")
+            ->setImage("p1.png.png")
             ->setDescription("aubergines, huile d'olive, basilic");
         $manager->persist($recette8);
 
         $recette9 = new Recette();
         $recette9->setNom("Fusilli al arrabiata ")
             ->setPrix(12.30)
-            ->setImage("p1.png")
+            ->setImage("p1.png.png")
             ->setDescription("tomate, poivrons, ail, piment");
         $manager->persist($recette9);
 
         $recette10 = new Recette();
         $recette10->setNom("Penne Rigat Gorgonzola")
             ->setPrix(12.50)
-            ->setImage("p1.png")
+            ->setImage("p1.png.png")
             ->setDescription("crème, gorgonzola");
         $manager->persist($recette10);
 
         $recette11 = new Recette();
         $recette11->setNom("Penne Rigat Matriciana")
             ->setPrix(12.20)
-            ->setImage("p1.png")
+            ->setImage("p1.png.png")
             ->setDescription("lardons, champignons, oignons, tomate, olives");
         $manager->persist($recette11);
 
         $recette12 = new Recette();
         $recette12->setNom("Spaghetti Frutti di Mare ")
             ->setPrix(13.80)
-            ->setImage("p1.png")
+            ->setImage("p1.png.png")
             ->setDescription("calamars, moules, crevettes, tomate");
         $manager->persist($recette12);
 
         $recette13 = new Recette();
         $recette13->setNom("Tagliattelles al Capra")
             ->setPrix(13.00)
-            ->setImage("p1.png")
+            ->setImage("p1.png.png")
             ->setDescription("fromage de chèvre, tomate, huile d'olive, basilic");
         $manager->persist($recette13);
 
         $recette14 = new Recette();
         $recette14->setNom("Spaghetti Bolognese ")
             ->setPrix(13.00)
-            ->setImage("p1.png")
+            ->setImage("p1.png.png")
             ->setDescription("sauce bolognaise");
         $manager->persist($recette14);
 
         $recette15 = new Recette();
         $recette15->setNom("Spaghetti Pomodoro")
             ->setPrix(13.00)
-            ->setImage("p1.png")
+            ->setImage("p1.png.png")
             ->setDescription("sauce tomate, basilic");
         $manager->persist($recette15);
 

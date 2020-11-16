@@ -1,13 +1,13 @@
 
-body{
+body {
     background: url(../images/bg.png);
 }
-.site{
+
+.site {
     font-family: 'Holtwood One SC', sans-serif;
 }
 
-.text-logo
-{
+.text-logo {
     font-family: 'Holtwood One SC', sans-serif;
     color: #e7480f;
     text-shadow: 2px 2px #ffd301;
@@ -16,26 +16,26 @@ body{
     text-align: center;
 
 }
-.text-logo .glyphicon
-{
+
+.text-logo .glyphicon {
     color: #ffd301;
     text-shadow: 0px 0px #ffd301;
 }
-.navMenu
-{
+
+.navMenu {
     margin-bottom: 50px;
 }
-.thumbnail img
-{
-    background:#ffd301 ;
+
+.thumbnail img {
+    background: #ffd301;
 
 }
-.price
-{
+
+.price {
     background: #5cb85c;
-    box-shadow: 0 1px rgba(0,0,0,0.2);
-    -moz-box-shadow: 0 1px rgba(0,0,0,0.2);
-    -webkit-box-shadow: 0 1px rgba(0,0,0,0.2);
+    box-shadow: 0 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 1px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0 1px rgba(0, 0, 0, 0.2);
     color: #fff;
     text-shadow: 2px 2px #333;
     position: absolute;
@@ -45,8 +45,8 @@ body{
     font-size: 20px;
     border-radius: 3px;
 }
-.price:before
-{
+
+.price:before {
     border: 4px solid transparent;
     border-bottom: 4px solid #4a934a;
     border-left: 4px solid #4a934a;
@@ -55,33 +55,32 @@ body{
     right: 1px;
     top: -8px;
 }
-.caption>h4
-{
+
+.caption > h4 {
     color: #e7480f;
     font-size: 18px;
 }
-.caption>p
-{
+
+.caption > p {
     height: 40px;
 }
-.navMenu>.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover
-{
+
+.navMenu > .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
     background: #e7480f;
 }
-.navMenu>.nav>li>a:focus, .nav>li>a:hover
-{
+
+.navMenu > .nav > li > a:focus, .nav > li > a:hover {
     color: #e7480f;
     background-color: #eee;
 }
-.navMenu>.nav>li>a
-{
+
+.navMenu > .nav > li > a {
     color: gold;
     font-size: 20px;
     text-shadow: 2px 2px #333;
 }
 
-.btn-order
-{
+.btn-order {
     width: 100%;
     padding: 10px;
     font-size: 16px;
@@ -90,20 +89,21 @@ body{
     text-decoration: none;
     text-shadow: 2px 2px #333;
 }
-.btn-order:hover, .btn-order:focus
-{
+
+.btn-order:hover, .btn-order:focus {
     color: #fff;
     background-color: #c13c0d;
 }
-.about
-{
+
+.about {
     background-color: #ffd301;
 }
-.homeImage
-{
+
+.homeImage {
     width: 1100px;
     height: 520px;
 }
+
 /*
 Home
  */
@@ -124,7 +124,7 @@ Home
 
 }
 
-.container-responsive h4{
+.container-responsive h4 {
     position: relative;
     top: 38%;
     left: 50%;
@@ -137,8 +137,10 @@ Home
     border-radius: 5px;
     text-align: center;
 
-.}
-.container-responsive p{
+.
+}
+
+.container-responsive p {
     font-size: 16px;
 
 }
@@ -148,17 +150,17 @@ Home
 }
 
 /*  ADMIN */
-.admin
-{
+.admin {
     padding: 50px;
     border-radius: 10px;
     background: #fdfdfc;
     font-size: 14px;
 }
-.help-inline
-{
+
+.help-inline {
     color: red;
 }
+
 /*IDENTIFICATION*/
 [required] {
     border: 2px dotted orange;
@@ -178,7 +180,7 @@ Cart Button
 .cart-button {
     position: relative;
     outline: 0;
-    background-color: blue;
+    background-color: #e7480f;
     color: #fff;
     border: none;
     height: 48px;
@@ -359,7 +361,7 @@ FOOTER
     font-size: 20px
 }
 
-@media (max-width:700px) {
+@media (max-width: 700px) {
     .social-list {
         display: block
     }
@@ -388,13 +390,90 @@ FOOTER
 /*
 FOOTER
  */
-.footer_perso
-{
-position: relative;
-    text-align: center;
-    bottom: 2px;
-    width: 100%;
-    padding-top: 25px;
-    margin-top: 25px;
 
+
+
+@media (min-width: 100px) {
+    .container {
+
+    }
+}
+
+body {
+    overflow-x: hidden;
+
+
+}
+
+.middleTop {
+
+    margin-top:40px;
+    padding: 50px 50px;
+    background-color: #333;
+    margin-bottom: 0px;
+
+}
+
+.middle-heading {
+    font-family: "font-bold";
+    font-size: 14px;
+    color: #fff;
+    margin-left: 38px;
+    padding-bottom: 15px;
+    text-transform: uppercase
+}
+
+.middle-content {
+    font-size: 12px;
+    color: #777 !important;
+    list-style-type: none;
+
+}
+
+.middleContent-footer .middleTop div {
+    box-sizing: border-box
+}
+
+.middleBottom {
+    background-color: #333;
+    text-align: center;
+    border-top: 1px solid #e2e2e2;
+    border-bottom: 1px solid #e2e2e2;
+    padding: 12px 0
+}
+
+.middleBottomFooter {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #344c55;
+    text-align: left;
+    background-color: #333
+}
+
+.underLineOnHover {
+    color: #fff
+}
+
+.bottomfooter {
+    background-color: #333;
+}
+
+.copyright {
+    color: #fff
+}
+
+.address {
+    color: #fff
+}
+
+/*
+navbar
+ */
+.profile {
+    font-size: 14px;
+}
+
+.user_name {
+    color: orangered;
+    font-size: 14px;
 }

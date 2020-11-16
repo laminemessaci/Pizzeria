@@ -1,25 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Anaheim);
 
-* {
-    margin: 0;
-    padding: 0;
-    outline: none;
-    border: none;
-    box-sizing: border-box
-}
-
-*:before,
 *:after {
     box-sizing: border-box
-}
-
-html,
-body {
-    min-height: 100%
-}
-
-body {
-    background-color: #FF9100
 }
 
 #container {

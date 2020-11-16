@@ -27,6 +27,14 @@
     <link href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css'>
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css'>
+
+
+    <link rel="stylesheet" type="text/css"
+          href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1561306648/feather.css">
+    <script src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1561306741/pcoded.min.js"></script>
+    <script src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1561306749/vertical-layout.min.js"></script>
+
 
     {% block stylesheets %}
 
@@ -62,10 +70,10 @@
 
                 {% if is_granted('ROLE_ADMIN') %}
 
-                <li class="nav-item">
-                    <a class="nav-link" style="font-size: 18px;  color: #FFF;"
-                       href="{{ path('admin_recette') }}">Admin</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="font-size: 18px;  color: #FFF;"
+                           href="{{ path('admin_recette') }}">Admin</a>
+                    </li>
 
                 {% endif %}
 
@@ -94,7 +102,7 @@
             </form>
 
         </div>
-        <div style="float: right; cursor: pointer;">
+        <div class="row" style="float: right; cursor: pointer;">
             <form class="form-inline my-2 my-lg-0 ">
                 <a href="{{ path('panier_index') }}" class="btn btn-info btn-lg">
                     <span class="glyphicon glyphicon-shopping-cart "></span> Panier
@@ -102,6 +110,45 @@
                           style="color: #e7480f"><strong>{{ somme? somme:'0' }}</strong></span>
                 </a>
             </form>
+
+            <li class="user-profile header-notification">
+                <div class="dropdown-primary dropdown">
+                    <div class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="https://img.icons8.com/color/96/000000/user.png" class="img-rounded m-4 p-1"
+                             alt="User-Profile-Image" width="50px">
+                        <span class="user_name">Lamine</span>
+                        <i class="feather icon-chevron-down"></i>
+                    </div>
+                    <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn"
+                        data-dropdown-out="fadeOut">
+                        <li>
+                            <a class="profile " href="#">
+                                <i class="feather icon-settings"></i> Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a class="profile " href="#">
+                                <i class="feather icon-user"></i> Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a class="profile " href="polygon/admindek/default/email-inbox.html">
+                                <i class="feather icon-mail"></i> My Messages
+                            </a>
+                        </li>
+                        <li>
+                            <a class="profile " href="polygon/admindek/default/auth-lock-screen.html">
+                                <i class="feather icon-lock"></i> Lock Screen
+                            </a>
+                        </li>
+                        <li>
+                            <a class="profile " href="polygon/admindek/default/auth-sign-in-social.html">
+                                <i class="feather icon-log-out"></i> Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
         </div>
 
     </nav>
@@ -115,84 +162,170 @@
 
 {% block body %}{% endblock %}
 
-<!-- Footer -->
 
-<footer class="py-5 p-4 m-4 footer_perso">
+{% if block ("footer")  is defined %}
 
-    <!-- /.container -->
-    <div class="container mt-5 mb-5 d-flex justify-content-center">
-        <ul class="social-list">
-            <li>
-                <div class="maincard p-3">
-                    <div class="thecard">
-                        <div class="thefront text-center py-4 facebook">
-                            <div class="social-icon"> <i class="fa fa-facebook fa-2x"></i> </div>
-                        </div>
-                        <div class="theback py-3 px-3 text-center facebook">
-                            <div class="social-text mt-1"> <small class="font-weight-bold">Facebook</small> </div>
-                        </div>
+    <!-- Footer -->
+    <div class="container-fluid">
+
+
+        <div class="middleTop row text-center ">
+            <div class="footer-inner">
+                <div class="col-md-2">
+                    <div class="middle-heading">Policy Info</div>
+                    <ul class="middle-content ">
+                        <li><a class="underLineOnHover" href="#" data-abc="true">Privacy Policy</a></li>
+                        <li><a class="underLineOnHover" href="#" data-abc="true">Terms of Sale</a></li>
+                        <li><a class="underLineOnHover" href="#" data-abc="true">Terms of Use</a></li>
+                        <li><a class="underLineOnHover" href="#" data-abc="true">Report Abuse &amp; Takedown Policy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <div class="middle-heading">Company</div>
+                    <ul class="middle-content">
+                        <li><a class="underLineOnHover" href="#" data-abc="true">About Us</a></li>
+                        <li><a class="underLineOnHover" href="#" data-abc="true">Core Values</a></li>
+                        <li><a class="underLineOnHover" href="#" data-abc="true">Careers</a></li>
+                        <li><a class="underLineOnHover" href="#" data-abc="true">Blog</a></li>
+                        <li><a class="underLineOnHover" href="#" data-abc="true">Sitemap</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <div class="middle-heading">XBusiness</div>
+                    <ul class="middle-content">
+                        <li><a class="underLineOnHover" href="#" data-abc="true">Shopping App</a></li>
+                        <li><a class="underLineOnHover" href="#" data-abc="true">Sell on BBBootstrap</a></li>
+                        <li><a class="underLineOnHover" href="#" data-abc="true">Advertise on BBBootstrap</a></li>
+                        <li><a class="underLineOnHover" href="mailto:mediarelations@BBBootstrap.com" data-abc="true">Media
+                                Enquiries</a></li>
+                        <li><a class="underLineOnHover" href="#" data-abc="true">Be an Affiliate</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <div class="middle-heading">Need Help ?</div>
+                    <ul class="middle-content">
+                        <li><a class="underLineOnHover" href="#" data-abc="true">FAQ</a></li>
+                        <li><a class="underLineOnHover" href="#" data-abc="true">Contact Us</a></li>
+                        <li><a class="underLineOnHover" href="#" data-abc="true">Online Shopping</a></li>
+                    </ul>
+                    <i class="originalalityfooterIcon footerIconsImg hide"></i>
+                </div>
+                <div class="col-md-4">
+                    <div class="middle-heading" style="margin-left: 0px;">About us</div>
+                    <span class="address">Plot No A5 ,1st Floor, Complex, Industrial Area, Delhi, 110095</span>
+                    <div class="">
+                        <h5 style="color: #EF5350;">Social connect</h5> <img
+                                src="https://img.icons8.com/color/24/000000/facebook.png"> <img
+                                src="https://img.icons8.com/office/20/000000/instagram-new.png"> <img
+                                src="https://img.icons8.com/color/24/000000/twitter-squared.png">
                     </div>
                 </div>
-            </li>
-            <li>
-                <div class="maincard p-3">
-                    <div class="thecard">
-                        <div class="thefront text-center py-4 instagram">
-                            <div class="social-icon"> <i class="fa fa-instagram fa-2x"></i> </div>
-                        </div>
-                        <div class="theback py-3 px-3 text-center instagram">
-                            <div class="social-text mt-1"> <small class="font-weight-bold">Instagram</small> </div>
-                        </div>
+
+                <!-- /.container -->
+                <div class="container d-flex justify-content-center">
+                    <ul class="social-list">
+                        <li>
+                            <div class="maincard p-3">
+                                <div class="thecard">
+                                    <div class="thefront text-center py-4 facebook">
+                                        <div class="social-icon"><i class="fa fa-facebook fa-2x"></i></div>
+                                    </div>
+                                    <div class="theback py-3 px-3 text-center facebook">
+                                        <div class="social-text mt-1"><small class="font-weight-bold">Facebook</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="maincard p-3">
+                                <div class="thecard">
+                                    <div class="thefront text-center py-4 instagram">
+                                        <div class="social-icon"><i class="fa fa-instagram fa-2x"></i></div>
+                                    </div>
+                                    <div class="theback py-3 px-3 text-center instagram">
+                                        <div class="social-text mt-1"><small class="font-weight-bold">Instagram</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="maincard p-3">
+                                <div class="thecard">
+                                    <div class="thefront text-center py-4 youtube">
+                                        <div class="social-icon"><i class="fa fa-youtube fa-2x"></i></div>
+                                    </div>
+                                    <div class="theback py-3 px-3 text-center youtube">
+                                        <div class="social-text mt-1"><small class="font-weight-bold">Youtube</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="maincard p-3">
+                                <div class="thecard">
+                                    <div class="thefront text-center py-4 whatsapp">
+                                        <div class="social-icon"><i class="fa fa-whatsapp fa-2x"></i></div>
+                                    </div>
+                                    <div class="theback py-3 px-3 text-center whatsapp">
+                                        <div class="social-text mt-1"><small class="font-weight-bold">Whatsapp</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="maincard p-3">
+                                <div class="thecard">
+                                    <div class="thefront text-center py-4 pinterest">
+                                        <div class="social-icon"><i class="fa fa-pinterest fa-2x"></i></div>
+                                    </div>
+                                    <div class="theback py-3 px-3 text-center pinterest">
+                                        <div class="social-text mt-1"><small class="font-weight-bold">Pinterest</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="middleBottom clearfix">
+            <div class="row">
+                <div class="col-md-2"><img src="https://img.icons8.com/ultraviolet/40/000000/security-ssl.png"></div>
+                <div class="col-md-2"><img src="https://img.icons8.com/dusk/40/000000/card-security.png"></div>
+                <div class="col-md-2"><img src="https://img.icons8.com/office/40/000000/remove-key.png"></div>
+                <div class="col-md-2"><img src="https://img.icons8.com/color/40/000000/lets-encrypt.png"></div>
+                <div class="col-md-2"><img src="https://img.icons8.com/office/40/000000/hips.png"></div>
+                <div class="col-md-2"><img src="https://img.icons8.com/cotton/40/000000/cloud-lock.png"></div>
+            </div>
+        </div>
+        <div class="clearfix bottomfooter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6" style="margin-top:10px;"><span class="copyright">Copyright © 2020, lamine.messaci.com All Rights Reserved</span>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="pull-right"><img class="pull-right"
+                                                     src="https://img.icons8.com/officel/40/000000/mastercard.png"> <img
+                                    class="pull-right" src="https://img.icons8.com/color/40/000000/visa.png"> <img
+                                    class="pull-right" src="https://img.icons8.com/color/40/000000/amex.png"> <img
+                                    class="pull-right" src="https://img.icons8.com/color/40/000000/discover.png"></div>
                     </div>
                 </div>
-            </li>
-            <li>
-                <div class="maincard p-3">
-                    <div class="thecard">
-                        <div class="thefront text-center py-4 youtube">
-                            <div class="social-icon"> <i class="fa fa-youtube fa-2x"></i> </div>
-                        </div>
-                        <div class="theback py-3 px-3 text-center youtube">
-                            <div class="social-text mt-1"> <small class="font-weight-bold">Youtube</small> </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="maincard p-3">
-                    <div class="thecard">
-                        <div class="thefront text-center py-4 whatsapp">
-                            <div class="social-icon"> <i class="fa fa-whatsapp fa-2x"></i> </div>
-                        </div>
-                        <div class="theback py-3 px-3 text-center whatsapp">
-                            <div class="social-text mt-1"> <small class="font-weight-bold">Whatsapp</small> </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="maincard p-3">
-                    <div class="thecard">
-                        <div class="thefront text-center py-4 pinterest">
-                            <div class="social-icon"> <i class="fa fa-pinterest fa-2x"></i> </div>
-                        </div>
-                        <div class="theback py-3 px-3 text-center pinterest">
-                            <div class="social-text mt-1"> <small class="font-weight-bold">Pinterest</small> </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
 
-    <div class="container">
-        <p class="m-2 text-center text-white ">Copyright &copy; Lamine Website 2020</p>
-    </div>
-
-</footer>
-
+{% endif %}
 
 {% block javascripts %}{% endblock %}
+
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://js.stripe.com/v3/"></script>
